@@ -13,41 +13,23 @@ body {
 
 main {
   background-color: #45A29e;
-  width: 1450px;
+  width: 1850px;
   margin: 3rem auto;
-  grid-template-columns: 250px 4fr;
-  grid-template-rows: 10rem 10rem 20rem 50%;
 }
-
-#logo {
-  width: 250px;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
+  
 h1 {
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 2;
-  grid-column-end: 3;
   font-size: 3rem;
   font-family: 'Dancing Script'
 }
 
 section {
   padding: 2rem;
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 1;
-  grid-column-end: 3;
   display: flex;
 }
 
 
 section img {
-  width: 460px;
+  width: 400px;
   max-height: 30rem;
   border: 5px solid transparent;
 }

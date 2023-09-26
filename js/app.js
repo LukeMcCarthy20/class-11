@@ -6,17 +6,17 @@ let img1 = document.querySelector('section img:first-child');
 let img2 = document.querySelector('section img:nth-child(2)');
 let img3 = document.querySelector('section img:nth-child(3)');
 
-// let productContainer = document.querySelector('section');
+let productContainer = document.querySelector('section');
 
-// let resultButton = document.querySelector('section + div');
-
-
+let resultButton = document.querySelector('section + div');
 
 
 
-// let clicks = 0;
 
-// let maxAttempts = 5;
+
+let clicks = 0;
+
+let maxAttempts = 5;
 
 Products.allProductsArray = [];
 
@@ -88,6 +88,24 @@ new Products('tauntaun', 'images/assets/wine-glass.jpg');
 
 
 
+let imgSection = document.getElementById('imgSection');
+
+function imgSectionClick (event){
+  console.log('Working...');
+
+  // for (let i = 0; i < product ){
+
+  // }
+
+
+
+
+
+}
+
+
+
+
 
 
 
@@ -97,4 +115,4 @@ new Products('tauntaun', 'images/assets/wine-glass.jpg');
 renderProducts();
 
 
-// productContainer.addEventListener('click', handleProductClick);
+imgSection.addEventListener('click', imgSectionClick);
