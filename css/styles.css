@@ -12,7 +12,7 @@ body{
 
 main{
   background-color: #45A29e;
-  width: 1200px;
+  width: 1450px;
   margin: 3rem auto;
   grid-template-columns: 250px 4fr;
   grid-template-rows: 10rem 10rem 20rem 50%;
@@ -54,3 +54,20 @@ section img{
 section img:hover{
   border: 5px solid #66FCF1;
 }
+
+section.end-voting img:hover{
+  cursor: not-allowed;
+  border:5px solid transparent;
+
+}
+
+section + div{
+  font-size:2rem;
+  padding: .5rem 1rem;
+  margin:1rem;
+  height: max-content;
+  width: max-content;
+
+}
+
+
