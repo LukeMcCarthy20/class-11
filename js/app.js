@@ -14,11 +14,19 @@ let image3OnThePage;
 let resultsList = document.getElementById('resultsList');
 let chartResults = document.getElementById('chartResults');
 
-let Products = function (productName, imageSrc) {
+let Products = function (productName, imageSrc, clicks, timesShown) {
   this.productName = productName;
   this.imageSrc = imageSrc;
-  this.clicks = 0;
-  this.views = 0;
+  if (clicks) {
+    this.clicks = clicks;
+  } else {
+    this.clicks = 0;
+  }
+  if (timesShown) {
+    this.timesShown = timesShown;
+  } else {
+    this.timesShown = 0;
+  }
   allProducts.push(this);
 };
 
@@ -42,6 +50,45 @@ function renderProducts() {
 
 }
 
+
+
+
+
+let savedProductString = localStorage.getItem('savedProductVoteRound');
+
+
+if (savedProductString) {
+
+  let arrayOfNotProductObject = JSON.parse(savedProductString);
+  console.log(arrayOfNotProductObject);
+  for (let i = 0; i < arrayOfNotProductObject.length; i++) {
+    new Products(
+      arrayOfNotProductObject[i].productName,
+      arrayOfNotProductObject[i].imageSrc,
+      arrayOfNotProductObject[i].clicks,
+      arrayOfNotProductObject[i].timesShown
+    );
+  }
+
+
+} else {
+  new Products('Bag', 'images/assets/bag.jpg');
+  new Products('Banana', 'images/assets/banana.jpg');
+  new Products('Bathroom', 'images/assets/bathroom.jpg');
+  new Products('Boots', 'images/assets/boots.jpg');
+  new Products('Breakfast', 'images/assets/breakfast.jpg');
+  new Products('Bubblegum', 'images/assets/bubblegum.jpg');
+  new Products('Chair', 'images/assets/chair.jpg');
+  new Products('Cthulhu', 'images/assets/cthulhu.jpg');
+  new Products('Dog duck', 'images/assets/dog-duck.jpg');
+  new Products('Dragon', 'images/assets/dragon.jpg');
+  new Products('Pen', 'images/assets/pen.jpg');
+  new Products('Pet Sweep', 'images/assets/pet-sweep.jpg');
+  new Products('Scissors', 'images/assets/scissors.jpg');
+  new Products('Sharks', 'images/assets/shark.jpg');
+  new Products('Sweep', 'images/assets/sweep.png');
+
+}
 
 
 
@@ -121,6 +168,7 @@ function handleClickOnProduct(event) {
 
   if (totalClicks === 25) {
     productImageSectionTag.removeEventListener('click', handleClickOnProduct);
+    localStorage.setItem('savedProductVoteRound', JSON.stringify(allProducts));
   }
 }
 
@@ -153,7 +201,7 @@ resultsList.addEventListener('click', handleResultsList);
 
 
 
-function handleChartResults(){
+function handleChartResults() {
   console.log('proof of chart results (handle)');
 
   productChart();
@@ -169,21 +217,6 @@ chartResults.addEventListener('click', handleChartResults);
 
 
 
-new Products('Bag', 'images/assets/bag.jpg');
-new Products('Banana', 'images/assets/banana.jpg');
-new Products('Bathroom', 'images/assets/bathroom.jpg');
-new Products('Boots', 'images/assets/boots.jpg');
-new Products('Breakfast', 'images/assets/breakfast.jpg');
-new Products('Bubblegum', 'images/assets/bubblegum.jpg');
-new Products('Chair', 'images/assets/chair.jpg');
-new Products('Cthulhu', 'images/assets/cthulhu.jpg');
-new Products('Dog duck', 'images/assets/dog-duck.jpg');
-new Products('Dragon', 'images/assets/dragon.jpg');
-new Products('Pen', 'images/assets/pen.jpg');
-new Products('Pet Sweep', 'images/assets/pet-sweep.jpg');
-new Products('Scissors', 'images/assets/scissors.jpg');
-new Products('Sharks', 'images/assets/shark.jpg');
-new Products('Sweep', 'images/assets/sweep.png');
 
 image1OnThePage = allProducts[0];
 image2OnThePage = allProducts[1];
