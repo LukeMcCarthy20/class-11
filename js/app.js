@@ -154,8 +154,8 @@ resultsList.addEventListener('click', handleResultsList);
 
 
 function handleChartResults(){
-  // console.log('proof from handle chart results');
-  //going to call the createChart function/
+  console.log('proof of chart results (handle)');
+
   productChart();
 }
 
