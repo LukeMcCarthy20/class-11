@@ -14,7 +14,7 @@ let image3OnThePage;
 let resultsList = document.getElementById('resultsList');
 let chartResults = document.getElementById('chartResults');
 
-let Products = function (productName, imageSrc, clicks, timesShown) {
+let Products = function (productName, imageSrc, clicks, timesShown, views) {
   this.productName = productName;
   this.imageSrc = imageSrc;
   if (clicks) {
@@ -26,6 +26,11 @@ let Products = function (productName, imageSrc, clicks, timesShown) {
     this.timesShown = timesShown;
   } else {
     this.timesShown = 0;
+  }
+  if (views) {
+    this.views = views;
+  } else {
+    this.views = 0;
   }
   allProducts.push(this);
 };
@@ -190,7 +195,7 @@ function handleResultsList() {
   for (let i = 0; i < allProducts.length; i++) {
     let currentProduct = allProducts[i];
     let li = document.createElement('li');
-    li.textContent = currentProduct.productName + ' got ' + currentProduct.clicks + ' votes';
+    li.textContent = `${ currentProduct.productName } had ${ currentProduct.clicks } votes, and was seen ${ currentProduct.views } times.`;
     ul.appendChild(li);
   }
 }
