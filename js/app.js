@@ -63,7 +63,7 @@ function renderProducts() {
 
 
 
-
+//test
 
 new Products('Bag', 'images/assets/bag.jpg');
 new Products('Banana', 'images/assets/banana.jpg');
