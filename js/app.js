@@ -23,7 +23,7 @@ let Products = function (productName, imageSrc) {
 
 
 function randomNumber() {
-  return Math.round(Math.random() * Products.allProducts.length);
+  return Math.round(Math.random() * allProducts.length);
 }
 function renderProducts() {
   let product1 = randomNumber();
@@ -35,9 +35,9 @@ function renderProducts() {
     product2 = randomNumber();
     product3 = randomNumber();
   }
-  image1.imageSrc = Products.allProducts[product1].img;
-  image2.imageSrc = Products.allProducts[product2].img;
-  image3.imageSrc = Products.allProducts[product3].img;
+  image1.src = allProducts[product1].imageSrc;
+  image2.src = allProducts[product2].imageSrc;
+  image3.src = allProducts[product3].imageSrc;
 
 }
 
