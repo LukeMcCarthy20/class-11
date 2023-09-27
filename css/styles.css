@@ -27,9 +27,14 @@ section {
   display: flex;
 }
 
+img{
+  width: 400px;
+  height: 300px;
+}
+
 
 section img {
-  width: 400px;
+  width: 300px;
   max-height: 30rem;
   border: 5px solid transparent;
 }
@@ -38,11 +43,15 @@ section img:hover {
   border: 5px solid #66FCF1;
 }
 
-section.end-voting img:hover {
+
+
+/* Haven't set up yet */
+
+/* section.end-voting img:hover {
   cursor: not-allowed;
   border: 5px solid transparent;
 
-}
+} */
 
 section+div {
   font-size: 2rem;

@@ -12,6 +12,7 @@ let image1OnThePage;
 let image2OnThePage;
 let image3OnThePage;
 let resultsList = document.getElementById('resultsList');
+let chartResults = document.getElementById('chartResults');
 
 let Products = function (productName, imageSrc) {
   this.productName = productName;
@@ -40,16 +41,6 @@ function renderProducts() {
   image3.src = allProducts[product3].imageSrc;
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -133,9 +124,9 @@ function handleClickOnProduct(event) {
   }
 }
 
-function clear(){
+function clear() {
   let ul = document.getElementById('product-clicks-list');
-  while (ul.firstChild){
+  while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
 }
@@ -159,6 +150,25 @@ function handleResultsList() {
 productImageSectionTag.addEventListener('click', handleClickOnProduct);
 resultsList.addEventListener('click', handleResultsList);
 
+
+
+
+function handleChartResults(){
+  // console.log('proof from handle chart results');
+  //going to call the createChart function/
+  productChart();
+}
+
+
+
+
+resultsList.addEventListener('click', handleResultsList);
+chartResults.addEventListener('click', handleChartResults);
+
+
+
+
+
 new Products('Bag', 'images/assets/bag.jpg');
 new Products('Banana', 'images/assets/banana.jpg');
 new Products('Bathroom', 'images/assets/bathroom.jpg');
@@ -180,3 +190,45 @@ image2OnThePage = allProducts[1];
 image3OnThePage = allProducts[2];
 
 renderProducts();
+
+
+
+function productChart() {
+  console.log('chart...');
+
+  let productNamesArray = [];
+  let productClicksArray = [];
+
+  for (let i = 0; i < allProducts.length; i++) {
+    let singleProductName = allProducts[i].productName;
+    productNamesArray.push(singleProductName);
+  }
+
+  for (let i = 0; i < allProducts.length; i++) {
+    let singleProductsClicks = allProducts[i].clicks;
+    productClicksArray.push(singleProductsClicks);
+  }
+
+  let ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: productNamesArray,
+      datasets: [{
+        label: 'Product Clicks',
+        data: productClicksArray,
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(0, 99, 132)',
+        borderWidth: 4
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
