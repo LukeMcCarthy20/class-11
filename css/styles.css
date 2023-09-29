@@ -1,10 +1,14 @@
+/* Importing a google Font */
+
 @import url('https://fonts.googleapis.com/css2?family=Croissant+One&family=Dancing+Script:wght@600&family=Oswald:wght@200&family=Pacifico&display=swap');
+
+/* Box Sizing */
 
 * {
   box-sizing: border-box;
 }
 
-
+/* Basic styles for colors, widths, margins, borders, hovering */
 body {
   background-color: #1f2833;
 
@@ -19,7 +23,8 @@ main {
   
 h1 {
   font-size: 3rem;
-  font-family: 'Dancing Script'
+  font-family: 'Dancing Script';
+  border-bottom: 2px solid black;
 }
 
 section {
@@ -45,14 +50,6 @@ section img:hover {
 
 
 
-/* Haven't set up yet */
-
-/* section.end-voting img:hover {
-  cursor: not-allowed;
-  border: 5px solid transparent;
-
-} */
-
 section+div {
   font-size: 2rem;
   padding: .5rem 1rem;
@@ -61,3 +58,15 @@ section+div {
   width: max-content;
 
 }
+
+.chart{
+  top: 0px;
+  margin-left: 50%;
+  margin-top: -20%;
+
+}
+
+h2{
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: -80%;

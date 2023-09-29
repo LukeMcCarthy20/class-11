@@ -1,6 +1,6 @@
 'use strict';
 console.log('js Connected...');
-
+// Global Variables
 let totalClicks = 0;
 let allProducts = [];
 let previouslyPickedProducts = [];
@@ -13,7 +13,7 @@ let image2OnThePage;
 let image3OnThePage;
 let resultsList = document.getElementById('resultsList');
 let chartResults = document.getElementById('chartResults');
-
+// Constructor
 let Products = function (productName, imageSrc, clicks, timesShown, views) {
   this.productName = productName;
   this.imageSrc = imageSrc;
@@ -35,7 +35,7 @@ let Products = function (productName, imageSrc, clicks, timesShown, views) {
   allProducts.push(this);
 };
 
-
+// Random number to chose an index and display a random image
 function randomNumber() {
   return Math.round(Math.random() * allProducts.length);
 }
@@ -61,7 +61,7 @@ function renderProducts() {
 
 let savedProductString = localStorage.getItem('savedProductVoteRound');
 
-
+// Storing Local Storage
 if (savedProductString) {
 
   let arrayOfNotProductObject = JSON.parse(savedProductString);
@@ -75,7 +75,7 @@ if (savedProductString) {
     );
   }
 
-
+// Objects
 } else {
   new Products('Bag', 'images/assets/bag.jpg');
   new Products('Banana', 'images/assets/banana.jpg');
@@ -101,7 +101,7 @@ if (savedProductString) {
 
 
 
-
+// Event Listeners 
 
 function handleClickOnProduct(event) {
   if (event.target.tagName !== 'IMG') {
@@ -226,10 +226,10 @@ chartResults.addEventListener('click', handleChartResults);
 image1OnThePage = allProducts[0];
 image2OnThePage = allProducts[1];
 image3OnThePage = allProducts[2];
-
+// calling render function
 renderProducts();
 
-
+// Chart
 
 function productChart() {
   console.log('chart...');
